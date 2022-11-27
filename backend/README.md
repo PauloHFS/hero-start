@@ -25,7 +25,7 @@ $ npm i
 3. Gere os artefatos do ORM e o banco SQLite:
 
 ```bash
-$ npx prisma generate
+$ npx prisma generate && npx prisma db push
 Environment variables loaded from .env
 ...
 ```
@@ -38,6 +38,8 @@ $ yarn dev
         🚀 Running on localhost:3333 🚀
 
 ```
+
+5. Importe o json mais recente em public/docs no insomnia para visualizar os endpoints
 
 ## Issues
 
