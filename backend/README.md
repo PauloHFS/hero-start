@@ -12,7 +12,7 @@
 
 ## Como iniciar
 
-1. Copie e cole o contêudo de .env.example para .env
+1. Copie e cole o contêudo de `.env.example` para `.env`
 
 2. Instale os modulos:
 
