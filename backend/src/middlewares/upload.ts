@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
       null,
       file.fieldname +
         '-' +
-        req.body.name +
+        String(req.body.name).toLowerCase() +
         '-' +
         uniqueSuffix +
         path.extname(file.originalname)

@@ -14,6 +14,7 @@ export const createHero = async (
     const result = await prisma.hero.create({
       data: {
         name,
+        picture: req.file?.path.replaceAll('\\', '/'),
       },
     });
     return res.status(201).send(result);

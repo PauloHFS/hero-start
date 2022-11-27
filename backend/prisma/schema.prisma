@@ -10,6 +10,7 @@ datasource db {
 model Hero {
   id        Int      @id @default(autoincrement())
   name      String
+  picture   String?
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
 }

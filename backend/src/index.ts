@@ -8,11 +8,11 @@ import { routes } from './modules/routes';
 
 const server = express();
 
-server.use(morgan('tiny'));
+server.use(morgan('short'));
 server.use(express.json());
 server.use(helmet());
 server.use(routes);
-server.use(express.static('public'));
+server.use('/public', express.static(process.cwd() + '/public'));
 
 server.get('/health', (req, res) => {
   return res.send('up!');
