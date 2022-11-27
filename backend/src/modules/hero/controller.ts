@@ -8,7 +8,6 @@ export const createHero = async (
   res: Response,
   next: NextFunction
 ) => {
-  // return res.send(req.body);
   const { name } = req.body;
 
   try {
@@ -20,7 +19,6 @@ export const createHero = async (
     return res.status(201).send({ result });
   } catch (error) {
     return res.status(500).send({
-      message: 'Error on Create',
       error: error,
     });
   }
@@ -36,7 +34,6 @@ export const listHeros = async (
     return res.status(200).send(result);
   } catch (error) {
     return res.status(500).send({
-      message: 'Error on Create',
       error: error,
     });
   }
@@ -51,10 +48,6 @@ export const updateHero = async (
   const { name } = req.body;
 
   try {
-    // if (!name) {
-    //   throw new Error("Attribute 'name' must be in the Request body.");
-    // }
-
     const result = await prisma.hero.update({
       where: {
         id: Number(id),
@@ -67,7 +60,6 @@ export const updateHero = async (
     return res.status(200).send(result);
   } catch (error) {
     return res.status(500).send({
-      message: 'Error on Create',
       error: error,
     });
   }
@@ -88,7 +80,6 @@ export const deleteHero = async (
     return res.status(200).send(result);
   } catch (error) {
     return res.status(500).send({
-      message: 'Error on Create',
       error: error,
     });
   }
