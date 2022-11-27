@@ -1,12 +1,11 @@
 import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
 import express from 'express';
-import { PrismaClient } from '@prisma/client';
 import { routes } from './modules/routes';
 
 const server = express();
-const prisma = new PrismaClient();
 
+server.use(express.json());
 server.use(routes);
 
 server.get('/health', (req, res) => {

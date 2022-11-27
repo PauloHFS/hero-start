@@ -8,7 +8,9 @@ export const createHero = async (
   res: Response,
   next: NextFunction
 ) => {
+  // return res.send(req.body);
   const { name } = req.body;
+
   try {
     const result = await prisma.hero.create({
       data: {
@@ -49,9 +51,9 @@ export const updateHero = async (
   const { name } = req.body;
 
   try {
-    if (!name) {
-      throw new Error("Attribute 'name' must be in the Request body.");
-    }
+    // if (!name) {
+    //   throw new Error("Attribute 'name' must be in the Request body.");
+    // }
 
     const result = await prisma.hero.update({
       where: {
