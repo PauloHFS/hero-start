@@ -16,7 +16,7 @@ export const createHero = async (
         name,
       },
     });
-    return res.status(201).send({ result });
+    return res.status(201).send(result);
   } catch (error) {
     return res.status(500).send({
       error: error,
