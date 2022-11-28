@@ -3,6 +3,7 @@ dotenv.config();
 import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import cors from 'cors';
 
 import { routes } from './modules/routes';
 
@@ -11,6 +12,7 @@ const server = express();
 server.use(morgan('short'));
 server.use(express.json());
 server.use(helmet());
+server.use(cors());
 server.use(routes);
 server.use('/public', express.static(process.cwd() + '/public'));
 
