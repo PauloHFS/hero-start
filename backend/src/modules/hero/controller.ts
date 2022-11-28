@@ -31,9 +31,24 @@ export const listHeros = async (
   next: NextFunction
 ) => {
   try {
-    const result = await prisma.hero.findMany({});
+    const findOptions = {
+      skip: Number(req.query.skip),
+      take: Number(req.query.take),
+    };
+
+    if (req.query.cursor)
+      Object.assign(findOptions, {
+        cursor: {
+          id: Number(req.query.cursor),
+        },
+      });
+
+    const result = await prisma.hero.findMany({
+      ...findOptions,
+    });
     return res.status(200).send(result);
   } catch (error) {
+    console.log(error);
     return res.status(500).send({
       error: error,
     });
