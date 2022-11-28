@@ -19,9 +19,7 @@ export const createHero = async (
     });
     return res.status(201).send(result);
   } catch (error) {
-    return res.status(500).send({
-      error: error,
-    });
+    next(error);
   }
 };
 
@@ -48,10 +46,7 @@ export const listHeros = async (
     });
     return res.status(200).send(result);
   } catch (error) {
-    console.log(error);
-    return res.status(500).send({
-      error: error,
-    });
+    next(error);
   }
 };
 
@@ -75,9 +70,7 @@ export const updateHero = async (
 
     return res.status(200).send(result);
   } catch (error) {
-    return res.status(500).send({
-      error: error,
-    });
+    next(error);
   }
 };
 
@@ -95,8 +88,6 @@ export const deleteHero = async (
     });
     return res.status(200).send(result);
   } catch (error) {
-    return res.status(500).send({
-      error: error,
-    });
+    next(error);
   }
 };
