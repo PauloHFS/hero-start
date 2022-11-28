@@ -11,8 +11,14 @@ const server = express();
 
 server.use(morgan('short'));
 server.use(express.json());
-server.use(helmet());
 server.use(cors());
+server.use(
+  helmet({
+    crossOriginResourcePolicy: {
+      policy: 'cross-origin',
+    },
+  })
+);
 server.use(routes);
 server.use('/public', express.static(process.cwd() + '/public'));
 
