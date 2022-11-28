@@ -50,6 +50,28 @@ export const listHeros = async (
   }
 };
 
+export const getHeroById = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { id } = req.params;
+
+  try {
+    const result = await prisma.hero.findFirst({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    const statusCode = result ? 200 : 404;
+
+    return res.status(statusCode).send(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const updateHero = async (
   req: Request,
   res: Response,

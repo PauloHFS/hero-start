@@ -1,5 +1,11 @@
 import { Router } from 'express';
-import { createHero, deleteHero, listHeros, updateHero } from './controller';
+import {
+  createHero,
+  deleteHero,
+  getHeroById,
+  listHeros,
+  updateHero,
+} from './controller';
 import { upload } from '../../middlewares/upload';
 import { validate } from '../../middlewares/validate';
 import { updateHeroSchema } from './validations';
@@ -14,6 +20,7 @@ router
 
 router
   .route('/:id')
+  .get(getHeroById)
   .patch(validate(updateHeroSchema), updateHero)
   .delete(deleteHero);
 
