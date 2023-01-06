@@ -1,6 +1,8 @@
+import { HeroCard } from '../../components/HeroCard';
 import { useHeros } from '../../querys/hero/useHeros';
+import './styles.css';
 
-export const Root = () => {
+export const Root = ({ children }) => {
   const { data, isError, isLoading } = useHeros();
 
   if (isLoading) {
@@ -12,19 +14,16 @@ export const Root = () => {
   }
 
   return (
-    <div>
-      <div>
+    <div className="root-page">
+      <div className="heros-list">
         {data.map(hero => (
-          <div key={hero.id}>
-            <img
-              src={`${import.meta.env.VITE_HERO_API_BASE_URL}/${hero.picture}`}
-              alt=""
-            />
-            <h3>{hero.name}</h3>
-          </div>
+          <HeroCard
+            key={hero.id}
+            imgSrc={`${import.meta.env.VITE_HERO_API_BASE_URL}/${hero.picture}`}
+            name={hero.name}
+          />
         ))}
       </div>
-      <div>{JSON.stringify(data)}</div>
     </div>
   );
 };

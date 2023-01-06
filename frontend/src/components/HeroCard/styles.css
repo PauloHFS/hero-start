@@ -1,0 +1,15 @@
+.hero-card {
+  background-color: #eee;
+  border: 1px solid black;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.hero-card img {
+  flex: 1;
+  width: 20vw;
+  height: auto;
+}
